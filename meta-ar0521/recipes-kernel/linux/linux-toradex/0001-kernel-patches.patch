@@ -881,9 +881,9 @@ index 3c628fb1becd..6bc71b44c413 100644
  {
  	struct mxc_mipi_csi2_dev *csi2dev = sd_to_mxc_mipi_csi2_dev(sd);
 @@ -1182,6 +1269,15 @@ static struct v4l2_subdev_pad_ops mipi_csi2_pad_ops = {
- 
  static struct v4l2_subdev_core_ops mipi_csi2_core_ops = {
  	.s_power = mipi_csi2_s_power,
+ 	.ioctl = mipi_csi2_s_ioctl,
 +#ifdef CONFIG_VIDEO_ECAM
 +	.queryctrl = mipi_csi2_queryctrl,
 +	.g_ctrl = mipi_csi2_g_ctrl,
